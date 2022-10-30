@@ -2,6 +2,7 @@ package woa.servlet;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,14 +32,14 @@ public class Test extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		  Calendar calendar = Calendar.getInstance();
 		  String message = "Yuri eres mi bibi"; StringBuilder sb = new StringBuilder();
 		  message = sb.append(message).reverse().toString(); // message=
 		  sb.reverse().append(message).toString(); request.setAttribute("variable",
 		  message); System.out.println("reverse p: " + sb.append(message).reverse());
-		  
-		  String todaysdate = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new
-		  Date());
+		  calendar.add(Calendar.DAY_OF_MONTH, -6);
+		  String todaysdate = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(calendar);
+		
 		  
 		  System.out.println("Today's Date is: " + todaysdate);
 		  
